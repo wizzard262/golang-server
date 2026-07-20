@@ -7,7 +7,7 @@
 
       // Serve the static file located at /static/index.html instead
       // This makes your index.html act like the homepage
-      "destination": 
-	  ]
-	}
+      "destination": "/static/index.html"
+    }
+  ]
 }
