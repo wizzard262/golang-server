@@ -1,12 +1,7 @@
 {
-  // "rewrites" tells Vercel to internally redirect certain URLs
   "rewrites": [
     {
-      // When the user visits the root URL: https://your-app.vercel.app/
       "source": "/",
-
-      // Serve the static file located at /static/index.html instead
-      // This makes your index.html act like the homepage
       "destination": "/static/index.html"
     }
   ]
