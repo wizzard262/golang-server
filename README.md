@@ -84,6 +84,7 @@
   **Deploy to Vercel**
  * Login to Vercel: https://vercel.com using my Github Account.
  * Add: New Project --> Import Github Repo --> **golang-server** --> import
+ * Application Preset: Go
  * Set **Root Directory** to the subfolder: Code
- * Deploy
- 
+ * Deploy *(still we need to create deployment and give it the URL to the CODE folder: https://github.com/wizzard262/golang-server/tree/main/code)* 
+ * https://golang-server-snowy.vercel.app/ shows: ??
