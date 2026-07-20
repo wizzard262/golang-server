@@ -5,11 +5,11 @@
   Verify installation (from any folder): `go version` reports: `go version go1.26.5 windows/amd64`   
 * Create a new GitHub repo *(with README.md and a Go .gitignore)*   
 * Clone repo to folder: *C:\DEV\Repositories\GitHub\golang-server*  
-* Initialize a Go module:  VS Code --> Terminal --> *C:\DEV\Repositories\GitHub\golang-server\code*  
-`go mod init example.com/hello` *(Creates the Module **go.mod** in C:\DEV\Repositories\GitHub\golang-server\code)*  
+* Initialize a Go module:  VS Code --> Terminal --> *C:\DEV\Repositories\GitHub\golang-server*  
+`go mod init example.com/hello` *(Creates the Module **go.mod** in C:\DEV\Repositories\GitHub\golang-server)*  
 `go mod tidy` *(Adds any required dependencies and removes unused dependencies)*  
-* Add file: *C:\DEV\Repositories\GitHub\golang-server\code\static\index.html* with some HTML content.  
-* Add file: *C:\DEV\Repositories\GitHub\golang-server\code\api\hello.go*  
+* Add file: *C:\DEV\Repositories\GitHub\golang-server\static\index.html* with some HTML content.  
+* Add file: *C:\DEV\Repositories\GitHub\golang-server\api\hello.go*  
 	```
 	package handler
 
@@ -19,13 +19,13 @@
 	)
 
 	func Handler(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Hello from Go API  at http://localhost:8080/api/hello locally!")
-		fmt.Fprintln(w, "Hello from Go API on Vercel at TODO !")
+		fmt.Fprintln(w, "Hello from Go API  at http://localhost:8080/api/hello locally")
+		fmt.Fprintln(w, "Hello from Go API on Vercel at https://golang-server-beta.vercel.app/api/hello")
 	}
 	// Note: as we are hosting on Vercel and it will handle the HTTP server we dont 
 	// include things like: http.Handle() and http.ListenAndServe()
 	```
-* Add file: *C:\DEV\Repositories\GitHub\golang-server\code\local-main.go*
+* Add file: *C:\DEV\Repositories\GitHub\golang-server\local-main.go*
 	```
 	package main
 
@@ -52,7 +52,7 @@
 		log.Fatal(http.ListenAndServe(":8080", nil))
 	}
 	```
-* Add file: *C:\DEV\Repositories\GitHub\golang-server\code\vercel.json*
+* Add file: *C:\DEV\Repositories\GitHub\golang-server\vercel.json*
 	```
 	{
 	  // "rewrites" tells Vercel to internally redirect certain URLs
@@ -69,7 +69,7 @@
 	}
 	```
 
-* Open *C:\DEV\Repositories\GitHub\golang-server\code\api* folder in VS Code  
+* Open *C:\DEV\Repositories\GitHub\golang-server\api* folder in VS Code  
   Click **hello.go** and allow VS Code to install recommended Go tools.  
   
 * Run the program locally in VS Code:  
@@ -83,8 +83,9 @@
   ---
   **Deploy to Vercel**
  * Login to Vercel: https://vercel.com using my Github Account.
- * Add: New Project --> Import Github Repo --> **golang-server** --> import
- * Application Preset: Go
- * Set **Root Directory** to the subfolder: Code
- * Deploy
- * https://golang-server-snowy.vercel.app/ shows: ??
+ * Add: New Project --> Import Github Repo --> **golang-server** --> deploys automatically!
+ * https://golang-server-beta.vercel.app/ shows the content of the HTML page.  
+ * https://golang-server-beta.vercel.app/api/hello shows the dynamically generated text:
+	"Hello from Go API  at http://localhost:8080/api/hello locally"
+	"Hello from Go API on Vercel at https://golang-server-beta.vercel.app/api/hello"
+ 
