@@ -61,6 +61,7 @@ func Weather(responseWriter http.ResponseWriter, request *http.Request) {
 	var outputResponse OutputResponse
 	outputResponse.Lat = latFloat
 	outputResponse.Lng = lngFloat
+	outputResponse.Temperature2m = openMeteoResponse.Current.Temperature2m
 
 	// Set the response header to indicate that we're returning JSON data
 	responseWriter.Header().Set("Content-Type", "application/json")

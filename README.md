@@ -35,7 +35,7 @@
 
 		// This import pulls in your Vercel serverless function package.
 		// Used ONLY for local development and testing.
-		handler "example.com/hello/api"
+		handler "example.com/golang-server/api"
 	)
 
 	func main() {

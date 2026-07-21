@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	// This import pulls in your Vercel serverless function package. Used ONLY for local development and testing.
-	handler "example.com/api" // Import your local API package. Path = module root (example.com) + folder (/api)
+	handler "example.com/golang-server/api" // Import your local API package. Path = module root (example.com) + folder (/api)
 )
 
 func main() {
