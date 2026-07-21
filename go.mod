@@ -1,2 +1,5 @@
-module example.com      // Root module path for all imports
-go 1.26.5               // Go language version used by this module
+// Root module path for all imports
+module example.com
+
+// Go language version used by this module
+go 1.26.5
