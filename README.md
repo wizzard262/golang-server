@@ -8,7 +8,7 @@
 * Initialize a Go module:  VS Code --> Terminal --> *C:\DEV\Repositories\GitHub\golang-server*  
 `go mod init example.com/hello` *(Creates the Module **go.mod** in C:\DEV\Repositories\GitHub\golang-server)*  
 `go mod tidy` *(Adds any required dependencies and removes unused dependencies)*  
-* Add file: *C:\DEV\Repositories\GitHub\golang-server\static\index.html* with some HTML content.  
+* Add file: *C:\DEV\Repositories\GitHub\golang-server\public\index.html* with some HTML content.  
 * Add file: *C:\DEV\Repositories\GitHub\golang-server\api\hello.go*  
 	```
 	package handler
@@ -39,9 +39,9 @@
 	)
 
 	func main() {
-		// LOCAL‑ONLY: Serve static files from the ./static directory
-		// This mimics how Vercel serves your static assets via its CDN.
-		fs := http.FileServer(http.Dir("./static"))
+		// LOCAL‑ONLY: Serve static files from the ./public directory
+		// This mimics how Vercel serves your public assets via its CDN.
+		fs := http.FileServer(http.Dir("./public"))
 		http.Handle("/", fs)
 
 		// LOCAL‑ONLY: Wire up your Vercel function as a normal HTTP handler
@@ -61,9 +61,9 @@
 		  // When the user visits the root URL: https://your-app.vercel.app/
 		  "source": "/",
 
-		  // Serve the static file located at /static/index.html instead
+		  // Serve the static file located at /public/index.html instead
 		  // This makes your index.html act like the homepage
-		  "destination": "/static/index.html"
+		  "destination": "/public/index.html"
 		}
 	  ]
 	}
@@ -87,5 +87,8 @@
  * https://golang-server-beta.vercel.app/ shows the content of the HTML page.  
  * https://golang-server-beta.vercel.app/api/hello shows the dynamically generated text:
 	"Hello from Go API  at http://localhost:8080/api/hello locally"
-	"Hello from Go API on Vercel at https://golang-server-beta.vercel.app/api/hello"
+	"Hello from Go API on Vercel at https://golang-server-beta.vercel.app/api/hello"  
+
+Vercel runs each file in /api/*.go as a serverless function.	
+Vercel automatically serves everythng in /public (i.e. static content: *.html, styles.css, *.json)
  

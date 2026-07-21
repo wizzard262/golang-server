@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Golang Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <h1>Go/Golang Server Homepage</h1>
+    <ul>
+        <li>GitHub repository hosted at: <a href="https://github.com/wizzard262/golang-server/"
+                target="_blank">https://github.com/wizzard262/golang-server/</a></li>
+        <li>README.md (full Go setup and hosting instructions) <a
+                href="https://github.com/wizzard262/golang-server/blob/main/README.md" target="_blank">README.md</a>
+        </li>
+        <li>Hosted on Vercel, project at: <a href="https://vercel.com/jones-steve-projects/golang-server"
+                target="_blank">https://vercel.com/jones-steve-projects/golang-server</a></li>
+        <li>Build - Vercel automatically builds upon GIT repo update</li>
+    </ul>
+    <br />
+    ENDPOINTS
+    <ul>
+        <li>STATIC - <a href="/" target="_blank">ROOT</a> index.html HTML homepage (this page with CSS & JS).</li>
+        <li>DYNAMIC - <a href="/api/hello" target="_blank">/api/hello</a> Text from within the Go/Golang server.</li>
+        <li>DYNAMIC - <a href="/api/weather?lat=53.4808&lon=-2.2426" target="_blank">/api/weather?lat=53.4808&lon=-2.2426</a> Weather from OpenMeteo API and JSON formatted.
+            <br/>
+            <i>(Manchester UK Coordinates)</i>
+        </li>
+    </ul>
+    <br />
+    Things Vercel project can do (Go + static):
+    <ul>
+        <li>Use environment variables<br />
+            Store API keys or secrets in Vercel → access via os.Getenv().</li>
+        <li>Add redirects & rewrites <br />
+            Control routing with vercel.json (SPA fallback, API routing, etc).</li>
+        <li>Dynamic API routes<br />
+            Use folders like /api/user/[id].go for parameterised endpoints.</li>
+    </ul>
+
+    <h1>Current Temperature</h1>
+    <p>
+        Client-side script <b>app.js</b> calls the Go API Weather endpoint:
+        <br />
+        <b>/api/weather?lat=53.4808&lon=-2.2426</b>
+        <br />
+        and process and show the results.
+    </p>
+    Latitude: <input type="text" id="latitude" placeholder="Enter latitude" value="53.4808" />
+    <br />
+    Longitude: <input type="text" id="longitude" placeholder="Enter longitude" value="-2.2426" />
+    <br />
+    <button onclick="loadWeather()">Get Current Temperature</button> <i>(default coordinates = Manchester, UK)</i>
+    <br />
+    <br />
+    <div id="temp">Div will be updated with the temperature when the button is clicked.</div>
+</body>
+
+</html>
